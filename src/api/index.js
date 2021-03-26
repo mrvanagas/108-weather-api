@@ -6,20 +6,17 @@ import {
 
 
 
-const weatherAPIKey = 'c233df874fbdc3ea7670e7687ce843f4'
+const weatherAPIKey = process.env.WEATHER_API_KEY
 const weatherAPI = axios.create({
     baseURL: 'https://api.openweathermap.org/data/2.5/',
     headers: {'Content-Type': 'application/json'}
 });
-// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
-const locationAPIKey = '2cc5964ad1c14a18af2ac27ad94fba05'
+const locationAPIKey = process.env.LOCATION_API_KEY
 const locationAPI = axios.create({
     baseURL: 'https://api.opencagedata.com/geocode/v1/',
     headers: {'Content-Type': 'application/json'}
 });
-//https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=2cc5964ad1c14a18af2ac27ad94fba05
-
 
 
 export const getDailyWeatherByCountry = async ({city, country}, success, failure) => {
